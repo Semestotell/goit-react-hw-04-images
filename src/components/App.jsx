@@ -12,7 +12,6 @@ import Notiflix from "notiflix";
 export function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error,setError]=useState(null)
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -57,7 +56,6 @@ export function App() {
           Notiflix.info("You've reached the end of search results.");
         }
       })
-      .catch(error => setError(error))
       .finally(() => setIsLoading(false));
   };
 
@@ -65,7 +63,6 @@ export function App() {
     setQuery(query);
     setPage(1);
     setImages([]);
-    setError(null);
   };
 
   const toggleModal = (largeImageURL, tags) => {
